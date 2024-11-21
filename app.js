@@ -62,8 +62,76 @@ function factorial(n) {
 console.log(factorial(5));  
 console.log(factorial(4));
 
+// 8. Create a function `removeDuplicates` that takes an array and returns a new array without duplicates.
+ const removeDuplicates = (array) => [...new Set(array)];
+
+ console.log(removeDuplicates([1,2,3,3,4,4,4,5,6,7,7,7]));
+
+//  9. Write a function `sumArray` that takes an array of numbers and returns the sum.
 
 
+ function sumArray(numbers) {
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i]; 
+  }
+  return total;
+}
+
+
+const array = [1,8,9];
+console.log(sumArray(array));
+
+// 10. Create a function `sortArray` that takes an array of numbers and returns it sorted in ascending order.
+
+function sortArray (numbers){
+  return numbers.sort((a, b) => a - b)
+}
+const answer = [1,8,6,2,5]
+console.log(sortArray(answer));
+
+// 11. Write a function `stringLength` that returns the length of a given string.
+function stringLength(Ilength){
+  return Ilength.length;
+}
+const newLenght = "javascript";
+console.log(stringLength(newLenght));
+
+// 12. Create a function `toUpperCase` that takes a string and returns it in uppercase.
+
+function toUpperCase(Icase){
+  return Icase.toUpperCase();
+}
+const uppercase = "falak naaz";
+console.log(toUpperCase(uppercase));
+
+// 13. Write a function `capitalizeFirstLetter` that capitalizes the first letter of each word in a string.
+function capitalizeFirstLetter(cLetter){
+  return cLetter.split(' ').map(word => word[0].toUpperCase() +word.slice(1)).join(' ');
+}
+const str = "hello! what are you doing?";
+console.log(capitalizeFirstLetter(str));
+
+// 14. Create a function `mergeArrays` that takes two arrays and merges them into one.
+
+function mergeArrays(array1,array2){
+  return array1.concat(array2)
+}
+const arr1 = [1,2,3];
+const arr2 = [4,5,6];
+console.log(mergeArrays(arr1,arr2));
+
+// 15. Write a function `isPrime` that checks if a number is prime.
+function isPrime(num){
+  if(num <= 1)return false;
+  for(let i = 2; i * i <= num; i++){
+    if(num % i === 0)return false
+  }
+  return true;
+
+}
+console.log(isPrime(5));
+console.log((isPrime(8)));
 
   
 

@@ -133,5 +133,113 @@ function isPrime(num){
 console.log(isPrime(5));
 console.log((isPrime(8)));
 
+// 16. Create a function `countWords` that counts the number of words in a string.
+function countWords(Istring){
+  return Istring.trim().split(/\s+/).length
+}
+console.log(countWords("we are learning javascript"));
+console.log((countWords("I am full stack developer")));
+
+// 17. Write a function `arrayContains` that checks if an array contains a specific value.
+function arrayContains(arr,value){
+  return arr.includes(value)
+}
+console.log(arrayContains([1,2,3,4],5));
+console.log(arrayContains([2,4,8],8));
+
+// 18. Create a function `uniqueElements` that returns an array of unique elements from a given array.
+function uniqueElements(arr) {
+  return [...new Set(arr)];
+}
+
+const arr = [1, 2, 2, 3, 4, 4, 5];
+const uniqueArray = uniqueElements(arr);
+console.log(uniqueArray); 
+
+// 19. Write a function `flattenArray` that flattens a nested array.
+function flattenArray(arr) {
+  return arr.flat(Infinity);
+}
+
+const nestedArray = [1, [2, [3, 4], 5], [6, 7], 8];
+const flatArray = flattenArray(nestedArray);
+console.log(flatArray); 
+
+// 20. Create a function `repeatString` that takes a string and a number, and returns the string repeated that many times.
+
+function repeatString(str, num) {
+  return num > 0 ? str.repeat(num) : "";
+}
+
+
+console.log(repeatString("falak", 3)); 
+console.log(repeatString("java", 1)); 
+
+// 21. Write a function `getRandomInt` that returns a random integer between two numbers.
+function getRandomInt(min, max) {
+  min = Math.ceil(min); 
+  max = Math.floor(max); 
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+console.log(getRandomInt(1, 10)); 
+console.log(getRandomInt(5, 15));
+
+// 22. Create a function `average` that calculates the average of an array of numbers.
+function average(arr) {
+  if (arr.length === 0) return 0; 
+  const sum = arr.reduce((count, num) => count + num, 0); 
+  return sum / arr.length; 
+}
+console.log(average([1, 2, 3,])); 
+console.log(average([10, 20,]));    
+console.log(average([]));  
+
+// 23. Write a function `removeSpaces` that removes all spaces from a string.
+function removeSpaces(str) {
+  return str.split(" ").join("");
+}
+
+console.log(removeSpaces("Hello World"));        
+console.log(removeSpaces("  java  script "));  
+console.log(removeSpaces(" No Spaces Here ")); 
+
+// 24. Create a function `difference` that returns the difference between the largest and smallest numbers in an array.
+function difference(arr) {
+  if (arr.length === 0) return 0; 
+  const max = Math.max(...arr);  
+  const min = Math.min(...arr);  
+  return max - min; 
+}
+console.log(difference([10, 2, 5, 8, 20])); 
+console.log(difference([1, 1, 1, 1])); 
+
+// 25. Write a function `shuffledArray` that takes an array and returns it shuffled randomly.
+function shuffledArray(arr) {
+  return arr
+    .map(value => ({ value, sort: Math.random() })) 
+    .sort((a, b) => a.sort - b.sort)   
+    .map(({ value }) => value);         
+}
+
+const Adjust = [5,4,3,2,1];
+console.log(shuffledArray(Adjust)); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 

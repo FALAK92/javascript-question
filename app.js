@@ -54,9 +54,9 @@ console.log(fibonacci(7));
 
 //   7. Write a function `factorial` that calculates the factorial of a given number.
 function factorial(n) {
-  let result = 1; // Initialize result as 1
+  let result = 1;
   for (let i = 1; i <= n; i++) {
-    result *= i; // Multiply result by each number from 1 to n
+    result *= i;
   }
   return result;
 }
@@ -347,3 +347,121 @@ function findIndex(array, value) {
 }
 const find = [10, 20, 30, 40, 50];
 console.log(findIndex(find, 50));
+
+// 38. Create a function `shuffleString` that shuffles the characters of a string randomly.
+function shuffleString(str) {
+  return str
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
+}
+console.log(shuffleString("hongkong"));
+
+// 39. Write a function `secondLargest` that finds the second largest number in an array.
+function secondLargest(arr) {
+  const uniqueSorted = [...new Set(arr)].sort((a, b) => b - a);
+  return uniqueSorted.length > 1 ? uniqueSorted[1] : null;
+}
+const numbers = [3, 1, 2, 1, 8, 9];
+console.log(secondLargest(numbers));
+
+// 40. Create a function `stringToArray` that converts a string to an array of words.
+function stringToArray(str) {
+  return str.trim().split(/\s+/);
+}
+
+const sent = "  We are fullstack developers.  ";
+console.log(stringToArray(sent));
+
+// 41. Write a function `mergeSortedArrays` that merges two sorted arrays into one sorted array.
+function mergeSortedArrays(arr1, arr2) {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+const array1 = [1, 3, 5, 7, 9];
+const array2 = [2, 4, 6, 8, 10];
+console.log(mergeSortedArrays(array1, array2));
+
+// 42. Create a function `sumPositiveNumbers` that sums all positive numbers in an array.
+function sumPositiveNumbers(arr) {
+  return arr.filter((num) => num > 0).reduce((sum, num) => sum + num, 0);
+}
+const nums = [-3, 5, -2, 5, -1, 4];
+console.log(sumPositiveNumbers(nums));
+
+// 43. Write a function `extractDomain` that extracts the domain from a URL.
+function extractDomain(url) {
+  try {
+    const hostname = new URL(url).hostname;
+    return hostname.replace(/^www\./, "");
+  } catch (error) {
+    return "Invalid URL";
+  }
+}
+console.log(extractDomain("https://www.typography.com/page"));
+console.log(extractDomain("www.pakistan.net"));
+
+// 44. Create a function `sumEvenNumbers` that sums all even numbers in an array.
+function sumEvenNumbers(arr) {
+  return arr.filter((num) => num % 2 === 0).reduce((sum, num) => sum + num, 0);
+}
+const num = [1, 2, 3, 4, 5, 6, 7];
+console.log(sumEvenNumbers(num));
+
+// 45. Write a function `getDayOfWeek` that returns the day of the week for a given date.
+function getDayOfWeek(date) {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayIndex = new Date(date).getDay();
+  return days[dayIndex];
+}
+console.log(getDayOfWeek("2024-9-15"));
+console.log(getDayOfWeek("2024-7-11"));
+
+// 46. Create a function `largestEvenNumber` that finds the largest even number in an array.
+function largestEvenNumber(arr) {
+  const evenNumbers = arr.filter((num) => num % 2 === 0);
+  return evenNumbers.length > 0 ? Math.max(...evenNumbers) : null;
+}
+const large = [1, 3, 5, 2, 8, 10];
+console.log(largestEvenNumber(large));
+
+const noEvens = [1, 3, 5, 7];
+console.log(largestEvenNumber(noEvens));
+
+// 47. Write a function `mergeObjects` that merges two objects into one.
+function mergeObjects(obj1, obj2) {
+  return { ...obj1, ...obj2 };
+}
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 2, c: 3 };
+
+console.log(mergeObjects(object1, object2));
+
+// 48. Create a function `capitalizeFirstLetter` that capitalizes the first letter of each word in a string.
+function capitalizeFirstLetter(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+console.log(capitalizeFirstLetter("Quaid-e-Azam is the founder of Pakistan."));
+
+// 49. Write a function `randomInteger` that generates a random integer between two given values.
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(randomInteger(1, 10));
+// 50. Create a function `uniquArray` that returns an array with duplicate values removed.
+function uniquArray(arr) {
+  return [...new Set(arr)];
+}
+
+const uni = [1, 2, 3, 4, 2, 5, 1];
+console.log(uniquArray(uni));

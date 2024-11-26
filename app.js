@@ -465,3 +465,138 @@ function uniquArray(arr) {
 
 const uni = [1, 2, 3, 4, 2, 5, 1];
 console.log(uniquArray(uni));
+
+// 51. Write a function `isAnagram` that checks if two strings are anagrams of each other (e.g., "listen" and "silent").
+function isAnagram(str1, str2) {
+  return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+}
+
+console.log(isAnagram("listen", "silent")); 
+console.log(isAnagram("study", "dusty")); 
+
+// 52. Create a function `removeVowels` that takes a string and returns a new string with all vowels removed.
+function removeVowels(str) {
+  return str.replace(/[aeiouAEIOU]/g, '');
+}
+console.log(removeVowels("Javascript is fun"));
+
+// 53. Write a function `getAge` that calculates the age of a person based on their birth year.
+function getAge(birthYear) {
+  const currentYear = new Date().getFullYear(); 
+  return currentYear - birthYear; 
+}
+
+console.log(getAge(1989)); 
+console.log(getAge(2000));
+
+// 54. Create a function `findMissingNumber` that finds the missing number in a given array of consecutive integers.
+function findMissingNumber(arr) {
+  const n = arr.length + 1;
+  return (n * (n + 1)) / 2 - arr.reduce((sum, num) => sum + num, 0);
+}
+console.log(findMissingNumber([1, 2, 3, 5])); 
+
+// 55. Write a function `countUppercase` that counts the number of uppercase letters in a string.
+function countUppercase(str) {
+  return (str.match(/[A-Z]/g) || []).length;
+}
+console.log(countUppercase("JavaScript is FUN")); 
+
+// 56. Create a function `validateEmail` that checks if a given email address is valid.
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+console.log(validateEmail("example@example.com")); 
+console.log(validateEmail("invalid-email")); 
+
+// 57. Write a function `toggleNavbar` that shows or hides a navigation bar when a button is clicked.
+function toggleNavbar() {
+  const navbar = document.getElementById('navbar');
+  navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
+}
+
+document.getElementById('toggleButton').addEventListener('click', toggleNavbar);
+
+// 58. Create a function `submitForm` that validates a form and submits it if all fields are filled correctly.
+function submitForm(event) {
+  event.preventDefault();
+
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  
+  if (!name || !email || !message) {
+    alert('Please fill all the fields.');
+    return false;
+  }
+
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return false;
+  }
+
+
+  alert('Form submitted successfully!');
+  document.getElementById('myForm').submit();
+}
+document.getElementById('myForm').addEventListener('submit', submitForm);
+
+// 59. Write a function `addToCart` that adds an item to a shopping cart and updates the cart count.
+let cartCount = 0; 
+
+function addToCart(item) {
+ 
+  cartCount++;
+  document.getElementById('cartCount').textContent = cartCount
+  alert(`${item} has been added to the cart.`);
+}
+
+addToCart("Apple");
+
+// 60. Create a function `searchProducts` that searches for products in an array and returns matching results.
+const products = [
+  "Apple",
+  "Banana",
+  "Orange",
+  "Grapes",
+  "Mango",
+  "Pineapple",
+  "Strawberry",
+  "Blueberry"
+];
+
+function searchProducts(query) {
+  const lowerCaseQuery = query.toLowerCase();
+  const results = products.filter(product => 
+    product.toLowerCase().includes(lowerCaseQuery)
+  );
+
+  return results;
+}
+
+console.log(searchProducts("apple")); 
+console.log(searchProducts("berry")); 
+console.log(searchProducts("grape")); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

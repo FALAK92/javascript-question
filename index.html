@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascript quetions</title>
+    <title>javascript questions</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    
+    <button id="toggleButton">Toggle Navbar</button>
+
+<div id="navbar" style="display: block;">
+  <ul class="list">
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</div>
+
+<form id="myForm">
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <textarea id="message" placeholder="Enter your message" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <button onclick="addToCart('Apple')">Add Apple to Cart</button>
+<button onclick="addToCart('Banana')">Add Banana to Cart</button>
+
+<div class="cart">
+  Cart Count: <span id="cartCount">0</span>
+</div>
+
+  
+
 
 
 

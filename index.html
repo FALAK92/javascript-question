@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>javascript questions</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--57. Write a function `toggleNavbar` that shows or hides a navigation bar when a button is clicked.  -->
     <button id="toggleButton">Toggle Navbar</button>
 
-<div id="navbar" style="display: block;">
-  <ul class="list">
-    <li>Home</li>
-    <li>About</li>
-    <li>Contact</li>
-  </ul>
-</div>
+    <div id="navbar" style="display: block">
+      <ul class="list">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <!-- 58. Create a function `submitForm` that validates a form and submits it if all fields are filled correctly. -->
+    <form id="myForm">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <textarea
+        id="message"
+        placeholder="Enter your message"
+        required
+      ></textarea>
+      <button type="submit">Submit</button>
+    </form>
 
-<form id="myForm">
-    <input type="text" id="name" placeholder="Enter your name" required>
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <textarea id="message" placeholder="Enter your message" required></textarea>
-    <button type="submit">Submit</button>
-  </form>
+    <button onclick="addToCart('Apple')">Add Apple to Cart</button>
+    <button onclick="addToCart('Banana')">Add Banana to Cart</button>
 
-  <button onclick="addToCart('Apple')">Add Apple to Cart</button>
-<button onclick="addToCart('Banana')">Add Banana to Cart</button>
+    <div class="cart">Cart Count: <span id="cartCount">0</span></div>
+    <!-- 62. Create a function `highlightText` that highlights specific keywords in a block of text. -->
+    <br />
+    Highlighted Text:
+    <span class="highlight">JavaScript</span> is a versatile
+    <span class="highlight">programming</span> language.
+    <br />
 
-<div class="cart">
-  Cart Count: <span id="cartCount">0</span>
-</div>
-<br>
-Highlighted Text:
-<span class="highlight">JavaScript</span> is a versatile <span class="highlight">programming</span> language.
-<br>
+    <!-- 64. Create a function `scrollToTop` that scrolls the page to the top smoothly when called. -->
+    <div style="height: 2000px; padding: 20px">
+      <p>Scroll down and click the button to scroll back to the top!</p>
+    </div>
+    <button id="scrollToTopButton">Scroll to Top</button>
 
-<div style="height: 2000px; padding: 20px;">
-  <p>Scroll down and click the button to scroll back to the top!</p>
-</div>
-<button id="scrollToTopButton">Scroll to Top</button>
+    <!-- 65. Write a function `updateProfilePicture` that allows a user to upload a new profile picture. -->
+    <img id="profilePicture" src="./pp.webp" alt="Profile Picture" />
+    <input type="file" id="fileInput" style="display: none" accept="image/*" />
+    <button id="uploadButton">Upload New Picture</button>
 
-<img id="profilePicture" src="./pp.webp" alt="Profile Picture">
-<input type="file" id="fileInput" style="display: none;" accept="image/*">
-<button id="uploadButton">Upload New Picture</button>
+    <!-- 68. Create a function `generateRandomPassword` that creates a random password based on user-defined criteria. -->
+    <h1>Random Password Generator</h1>
+    <button onclick="generateAndShowPassword()">Generate password</button>
+    <p id="passwordOutput"></p>
+    <!-- 85. Create a function `getElementById` that takes an ID and returns the HTML element with that ID. -->
+    <div class="container">
+      <h1>Click the button to get the element by ID</h1>
+      <button id="getElementButton">Get Element</button>
+      <div id="myElement" class="element">
+        This is the element with the ID "myElement"
+      </div>
+      <div id="output"></div>
+    </div>
 
-<h1>Random Password Generator</h1>
-<button onclick="generateAndShowPassword()">Generate password</button>
-<p id="passwordOutput"></p>
-
-
-
+    <div id="ownElement">This is my element with resizing feature</div>
+    <button onclick="resizeElement('ownElement', '400px', '300px')">
+      Resize Element
+    </button>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

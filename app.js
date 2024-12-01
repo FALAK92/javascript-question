@@ -468,25 +468,28 @@ console.log(uniquArray(uni));
 
 // 51. Write a function `isAnagram` that checks if two strings are anagrams of each other (e.g., "listen" and "silent").
 function isAnagram(str1, str2) {
-  return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+  return (
+    str1.toLowerCase().split("").sort().join("") ===
+    str2.toLowerCase().split("").sort().join("")
+  );
 }
 
-console.log(isAnagram("listen", "silent")); 
-console.log(isAnagram("study", "dusty")); 
+console.log(isAnagram("listen", "silent"));
+console.log(isAnagram("study", "dusty"));
 
 // 52. Create a function `removeVowels` that takes a string and returns a new string with all vowels removed.
 function removeVowels(str) {
-  return str.replace(/[aeiouAEIOU]/g, '');
+  return str.replace(/[aeiouAEIOU]/g, "");
 }
 console.log(removeVowels("Javascript is fun"));
 
 // 53. Write a function `getAge` that calculates the age of a person based on their birth year.
 function getAge(birthYear) {
-  const currentYear = new Date().getFullYear(); 
-  return currentYear - birthYear; 
+  const currentYear = new Date().getFullYear();
+  return currentYear - birthYear;
 }
 
-console.log(getAge(1989)); 
+console.log(getAge(1989));
 console.log(getAge(2000));
 
 // 54. Create a function `findMissingNumber` that finds the missing number in a given array of consecutive integers.
@@ -494,65 +497,60 @@ function findMissingNumber(arr) {
   const n = arr.length + 1;
   return (n * (n + 1)) / 2 - arr.reduce((sum, num) => sum + num, 0);
 }
-console.log(findMissingNumber([1, 2, 3, 5])); 
+console.log(findMissingNumber([1, 2, 3, 5]));
 
 // 55. Write a function `countUppercase` that counts the number of uppercase letters in a string.
 function countUppercase(str) {
   return (str.match(/[A-Z]/g) || []).length;
 }
-console.log(countUppercase("JavaScript is FUN")); 
+console.log(countUppercase("JavaScript is FUN"));
 
 // 56. Create a function `validateEmail` that checks if a given email address is valid.
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
-console.log(validateEmail("example@example.com")); 
-console.log(validateEmail("invalid-email")); 
+console.log(validateEmail("example@example.com"));
+console.log(validateEmail("invalid-email"));
 
 // 57. Write a function `toggleNavbar` that shows or hides a navigation bar when a button is clicked.
 function toggleNavbar() {
-  const navbar = document.getElementById('navbar');
-  navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
+  const navbar = document.getElementById("navbar");
+  navbar.style.display = navbar.style.display === "none" ? "block" : "none";
 }
 
-document.getElementById('toggleButton').addEventListener('click', toggleNavbar);
+document.getElementById("toggleButton").addEventListener("click", toggleNavbar);
 
 // 58. Create a function `submitForm` that validates a form and submits it if all fields are filled correctly.
 function submitForm(event) {
   event.preventDefault();
 
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  
   if (!name || !email || !message) {
-    alert('Please fill all the fields.');
+    alert("Please fill all the fields.");
     return false;
   }
 
-  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    alert('Please enter a valid email address.');
+    alert("Please enter a valid email address.");
     return false;
   }
 
-
-  alert('Form submitted successfully!');
-  document.getElementById('myForm').submit();
+  alert("Form submitted successfully!");
+  document.getElementById("myForm").submit();
 }
-document.getElementById('myForm').addEventListener('submit', submitForm);
+document.getElementById("myForm").addEventListener("submit", submitForm);
 
 // 59. Write a function `addToCart` that adds an item to a shopping cart and updates the cart count.
-let cartCount = 0; 
+let cartCount = 0;
 
 function addToCart(item) {
- 
   cartCount++;
-  document.getElementById('cartCount').textContent = cartCount
+  document.getElementById("cartCount").textContent = cartCount;
   alert(`${item} has been added to the cart.`);
 }
 
@@ -567,21 +565,21 @@ const products = [
   "Mango",
   "Pineapple",
   "Strawberry",
-  "Blueberry"
+  "Blueberry",
 ];
 
 function searchProducts(query) {
   const lowerCaseQuery = query.toLowerCase();
-  const results = products.filter(product => 
+  const results = products.filter((product) =>
     product.toLowerCase().includes(lowerCaseQuery)
   );
 
   return results;
 }
 
-console.log(searchProducts("apple")); 
-console.log(searchProducts("berry")); 
-console.log(searchProducts("grape")); 
+console.log(searchProducts("apple"));
+console.log(searchProducts("berry"));
+console.log(searchProducts("grape"));
 
 // 61. Write a function `sortByPrice` that sorts an array of products by their price.
 /**
@@ -612,7 +610,10 @@ function highlightText(text, keywords, highlightClass = "highlight") {
   const regex = new RegExp(`(${keywords.join("|")})`, "gi");
 
   // Replace matching keywords with a span for highlighting
-  return text.replace(regex, (match) => `<span class="${highlightClass}">${match}</span>`);
+  return text.replace(
+    regex,
+    (match) => `<span class="${highlightClass}">${match}</span>`
+  );
 }
 
 const text = "JavaScript is a versatile programming language.";
@@ -666,22 +667,24 @@ function scrollToTop() {
   });
 }
 
-document.getElementById("scrollToTopButton").addEventListener("click", scrollToTop);
+document
+  .getElementById("scrollToTopButton")
+  .addEventListener("click", scrollToTop);
 
 // 65. Write a function `updateProfilePicture` that allows a user to upload a new profile picture.
 
 function updateProfilePicture() {
-  const fileInput = document.getElementById('fileInput');
+  const fileInput = document.getElementById("fileInput");
   fileInput.click(); // Simulate the file input click
 
   // When a file is selected
-  fileInput.addEventListener('change', function() {
+  fileInput.addEventListener("change", function () {
     const file = fileInput.files[0]; // Get the selected file
     if (file) {
       const reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         // Update the profile picture with the new image
-        const profilePicture = document.getElementById('profilePicture');
+        const profilePicture = document.getElementById("profilePicture");
         profilePicture.src = e.target.result;
       };
       reader.readAsDataURL(file); // Read the file as a data URL
@@ -690,14 +693,13 @@ function updateProfilePicture() {
 }
 
 // Add event listener to the button to trigger file input
-document.getElementById('uploadButton').addEventListener('click', updateProfilePicture);
-
+document
+  .getElementById("uploadButton")
+  .addEventListener("click", updateProfilePicture);
 
 // 66. Create a function `validatePhoneNumber` that checks if a phone number is valid based on a specified format.
 function validatePhoneNumber(phoneNumber) {
-
   const regex = /^\+(\d{1,3})-(\d{3})-(\d{3})-(\d{4})$/;
-
 
   if (regex.test(phoneNumber)) {
     return "Phone number is valid.";
@@ -714,43 +716,49 @@ function getCurrentDateTime() {
   const now = new Date();
 
   const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-  
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
   const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  
+
   return formattedDateTime;
 }
 
 const currentDateTime = getCurrentDateTime();
-console.log(currentDateTime); 
+console.log(currentDateTime);
 
 // 68. Create a function `generateRandomPassword` that creates a random password based on user-defined criteria.
 
-function generateRandomPassword(length, useUppercase = true, useLowercase = true, useNumbers = true, useSpecialChars = true) {
+function generateRandomPassword(
+  length,
+  useUppercase = true,
+  useLowercase = true,
+  useNumbers = true,
+  useSpecialChars = true
+) {
   // Define possible character sets
-  const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-  const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numberChars = '0123456789';
-  const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
-  
+  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numberChars = "0123456789";
+  const specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+
   // Build a pool of characters based on user criteria
-  let charPool = '';
+  let charPool = "";
   if (useUppercase) charPool += uppercaseChars;
   if (useLowercase) charPool += lowercaseChars;
   if (useNumbers) charPool += numberChars;
   if (useSpecialChars) charPool += specialChars;
 
   // If no character pool is selected, return an error
-  if (charPool === '') {
-    return 'Error: At least one character type must be selected.';
+  if (charPool === "") {
+    return "Error: At least one character type must be selected.";
   }
 
   // Generate random password
-  let password = '';
+  let password = "";
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * charPool.length);
     password += charPool[randomIndex];
@@ -760,8 +768,8 @@ function generateRandomPassword(length, useUppercase = true, useLowercase = true
 }
 
 function generateAndShowPassword() {
-  const randomPassword = generateRandomPassword(12);  // Password length is 12
-  document.getElementById('passwordOutput').textContent = randomPassword;
+  const randomPassword = generateRandomPassword(12); // Password length is 12
+  document.getElementById("passwordOutput").textContent = randomPassword;
 }
 // 69. Write a function `rotateArray` that rotates an array to the right by a given number of steps.
 function rotateArray(arr, steps) {
@@ -780,7 +788,6 @@ function comparePasswords(password1, password2) {
   return password1 === password2;
 }
 
-
 const password1 = "securePassword123";
 const password2 = "securePassword123";
 
@@ -794,7 +801,7 @@ function isAdult(age) {
   return age >= 18;
 }
 
-console.log(isAdult(20)); 
+console.log(isAdult(20));
 console.log(isAdult(17));
 console.log(isAdult(18));
 
@@ -803,22 +810,160 @@ function concatStrings(str1, str2) {
   return str1 + str2;
 }
 
-console.log(concatStrings("Hello, ", "World!")); 
+console.log(concatStrings("Hello, ", "World!"));
 console.log(concatStrings("Frontend", "Developer"));
 
+// 73. Write a function `greetUser` that takes a name and returns a greeting message (e.g., "Hello, [name]!").
+function greetUser(name) {
+  return `Hello, ${name}!`;
+}
 
+console.log(greetUser("falak"));
+console.log(greetUser("Anum"));
 
+// 74. Create a function `squareNumber` that takes a number and returns its square.
+function squareNumber(number) {
+  return number * number;
+}
 
+console.log(squareNumber(4));
+console.log(squareNumber(7));
+console.log(squareNumber(-3));
 
+// 75. Write a function `countChars` that counts the number of characters in a string.
+function countChars(str) {
+  return str.length;
+}
 
+console.log(countChars("Falak"));
+console.log(countChars("ReactJs"));
 
+// 76. Create a function `isString` that checks if a given input is a string and returns true or false.
+function isString(input) {
+  return typeof input === "string";
+}
+console.log(isString("Hello"));
+console.log(isString(123));
 
+// 77. Write a function `findMin` that takes an array of numbers and returns the smallest number.
+function findMin(arr) {
+  return Math.min(...arr);
+}
+console.log(findMin([3, 5, 7, 2, 8]));
+console.log(findMin([-1, -5, 0, 3]));
 
+// 78. Create a function `splitString` that takes a string and returns an array of its characters.
+function splitString(str) {
+  return str.split("");
+}
+console.log(splitString("webdevelopment"));
+console.log(splitString("1234"));
 
+// 79. Write a function `removeLastElement` that takes an array and returns a new array with the last element removed.
+function removeLastElement(arr) {
+  arr.pop();
+  return arr;
+}
+console.log(removeLastElement([1, 2, 3, 4]));
+console.log(removeLastElement([10]));
 
+// 80. Create a function `toggleCase` that takes a string and toggles the case of each character.
+function toggleCase(str) {
+  return str
+    .split("")
+    .map((char) =>
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    )
+    .join("");
+}
 
+console.log(toggleCase("JavaScript"));
+console.log(toggleCase("tOgGlE CaSe"));
 
+// 81. Write a function `countConsonants` that takes a string and returns the number of consonants in that string.
+function countConsonants(str) {
+  const consonants = str
+    .toLowerCase()
+    .replace(/[^a-z]/g, "")
+    .match(/[bcdfghjklmnpqrstvwxyz]/g);
+  return consonants ? consonants.length : 0;
+}
+console.log(countConsonants("falak Naaz"));
 
+// 82. Create a function `removeWhitespace` that removes all leading and trailing whitespace from a string.
+function removeWhitespace(str) {
+  return str.trim();
+}
 
+console.log(removeWhitespace("  JSONstringify!  "));
+console.log(removeWhitespace("   Typescript   "));
 
+// 83. Create a function `highlightSubstring` that highlights a specified substring within a string.
+function highlightSubstring(str, substring) {
+  const regex = new RegExp(substring, "gi");
+  return str.replace(regex, (match) => `<mark>${match}</mark>`);
+}
 
+console.log(highlightSubstring("Hello World, welcome to the world!", "world"));
+
+// 84. Write a function `formatCurrency` that takes a number and formats it as a currency string.
+function formatCurrency(amount) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(amount);
+}
+console.log(formatCurrency(1234.56));
+console.log(formatCurrency(50));
+
+// 85. Create a function `getElementById` that takes an ID and returns the HTML element with that ID.
+document
+  .getElementById("getElementButton")
+  .addEventListener("click", function () {
+    const element = getElementById("myElement");
+    const output = document.getElementById("output");
+
+    if (element) {
+      output.textContent = "Element found: " + element.textContent;
+    } else {
+      output.textContent = "Element not found!";
+    }
+  });
+
+function getElementById(id) {
+  return document.getElementById(id);
+}
+
+// 86. Write a function `formatDate(date)` that takes a date object and returns a formatted date string in the format YYYY-MM-DD.
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+const today = new Date();
+console.log(formatDate(today));
+
+// 87. Create a function `resizeElement(elementId, width, height)` that resizes the HTML element with the specified ID to the provided width and height.
+function resizeElement(elementId, width, height) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.style.width = width;
+    element.style.height = height;
+  } else {
+    console.log("Element not found");
+  }
+}
+
+resizeElement("ownElement", "300px", "200px");
+
+// 88. Write a function that flattens a nested array into a single array.
+
+function flattenArray(arrr) {
+  return arrr.flat(Infinity);
+}
+
+const nestArray = [1, [2, [3, [4, 5]]], 6];
+console.log(flattenArray(nestArray));

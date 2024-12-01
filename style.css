@@ -120,9 +120,9 @@ textarea::placeholder {
   }
 }
 
-.cart{
-    color: #851b89;
-    font-size: 20px;
+.cart {
+  color: #851b89;
+  font-size: 20px;
 }
 /* 62. Create a function `highlightText` that highlights specific keywords in a block of text. */
 
@@ -132,8 +132,7 @@ textarea::placeholder {
   font-size: 12px;
 }
 
-
-body{
+body {
   margin: 0;
   height: auto;
   position: relative;
@@ -175,3 +174,43 @@ body{
   background-color: #d031ef;
 }
 
+/* 85. Create a function `getElementById` that takes an ID and returns the HTML element with that ID. */
+.container {
+  text-align: center;
+}
+
+.vik {
+  padding: 10px 20px;
+  background-color: #d450eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.vik:hover {
+  background-color: #f83dec;
+}
+
+.element {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #3a5718;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#output {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: purple;
+}
+/* 87. Create a function `resizeElement(elementId, width, height)` that resizes the HTML element with the specified ID to the provided width and height. */
+
+#ownElement {
+  background-color: #eb0d53;
+  color: rgb(237, 226, 238);
+  text-align: center;
+  padding: 20px;
+}

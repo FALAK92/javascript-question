@@ -124,3 +124,54 @@ textarea::placeholder {
     color: #851b89;
     font-size: 20px;
 }
+/* 62. Create a function `highlightText` that highlights specific keywords in a block of text. */
+
+.highlight {
+  background-color: rgb(228, 130, 230);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+
+body{
+  margin: 0;
+  height: auto;
+  position: relative;
+}
+/* 64. Create a function `scrollToTop` that scrolls the page to the top smoothly when called. */
+
+#scrollToTopButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 20px;
+  background-color: #da7beb;
+  color: purple;
+  border: 2px solid purple;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+/* 65. Write a function `updateProfilePicture` that allows a user to upload a new profile picture. */
+
+#profilePicture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #5a5454;
+  margin-bottom: 20px;
+}
+#uploadButton {
+  padding: 10px 20px;
+  background-color: #e860e1;
+  color: white;
+  border: 2px solid purple;
+  cursor: pointer;
+}
+#uploadButton:hover {
+  background-color: #d031ef;
+}
+

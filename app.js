@@ -583,6 +583,228 @@ console.log(searchProducts("apple"));
 console.log(searchProducts("berry")); 
 console.log(searchProducts("grape")); 
 
+// 61. Write a function `sortByPrice` that sorts an array of products by their price.
+/**
+ * Sorts an array of products by their price in ascending order.
+ * @param {Array} items - Array of product objects.
+ * Each product should have a `price` property.
+ * @returns {Array} - Sorted array of products by price.
+ */
+function sortByPrice(items) {
+  return items.sort((a, b) => a.price - b.price);
+}
+
+// Example usage:
+const items = [
+  { name: "Laptop", price: 1200 },
+  { name: "Phone", price: 800 },
+  { name: "Tablet", price: 600 },
+];
+
+const sortedProducts = sortByPrice(items);
+console.log("Sorted Products:", sortedProducts);
+
+// 62. Create a function `highlightText` that highlights specific keywords in a block of text.
+function highlightText(text, keywords, highlightClass = "highlight") {
+  if (!text || !keywords.length) return text;
+
+  // Combine all keywords into a single regex pattern
+  const regex = new RegExp(`(${keywords.join("|")})`, "gi");
+
+  // Replace matching keywords with a span for highlighting
+  return text.replace(regex, (match) => `<span class="${highlightClass}">${match}</span>`);
+}
+
+const text = "JavaScript is a versatile programming language.";
+const keywords = ["JavaScript", "programming"];
+const highlightedText = highlightText(text, keywords);
+
+console.log("Highlighted Text:", highlightedText);
+
+// 63. Write a function `validatePassword` that checks if a password meets certain criteria (length, special characters, etc.).
+
+function validatePassword(password) {
+  // Criteria:
+  // - Minimum length of 8 characters
+  // - At least one uppercase letter
+  // - At least one lowercase letter
+  // - At least one digit
+  // - At least one special character
+  const minLength = 8;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasDigit = /\d/.test(password);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+  if (password.length < minLength) {
+    return "Password must be at least 8 characters long.";
+  }
+  if (!hasUpperCase) {
+    return "Password must contain at least one uppercase letter.";
+  }
+  if (!hasLowerCase) {
+    return "Password must contain at least one lowercase letter.";
+  }
+  if (!hasDigit) {
+    return "Password must contain at least one digit.";
+  }
+  if (!hasSpecialChar) {
+    return "Password must contain at least one special character.";
+  }
+
+  return "Password is valid.";
+}
+const password = "MyPassword1@";
+const results = validatePassword(password);
+console.log(results);
+
+// 64. Create a function `scrollToTop` that scrolls the page to the top smoothly when called.
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+document.getElementById("scrollToTopButton").addEventListener("click", scrollToTop);
+
+// 65. Write a function `updateProfilePicture` that allows a user to upload a new profile picture.
+
+function updateProfilePicture() {
+  const fileInput = document.getElementById('fileInput');
+  fileInput.click(); // Simulate the file input click
+
+  // When a file is selected
+  fileInput.addEventListener('change', function() {
+    const file = fileInput.files[0]; // Get the selected file
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        // Update the profile picture with the new image
+        const profilePicture = document.getElementById('profilePicture');
+        profilePicture.src = e.target.result;
+      };
+      reader.readAsDataURL(file); // Read the file as a data URL
+    }
+  });
+}
+
+// Add event listener to the button to trigger file input
+document.getElementById('uploadButton').addEventListener('click', updateProfilePicture);
+
+
+// 66. Create a function `validatePhoneNumber` that checks if a phone number is valid based on a specified format.
+function validatePhoneNumber(phoneNumber) {
+
+  const regex = /^\+(\d{1,3})-(\d{3})-(\d{3})-(\d{4})$/;
+
+
+  if (regex.test(phoneNumber)) {
+    return "Phone number is valid.";
+  } else {
+    return "Invalid phone number format. Please use the format: +X-XXX-XXX-XXXX";
+  }
+}
+const phoneNumber = "+1-34-567-8901";
+const check = validatePhoneNumber(phoneNumber);
+console.log(check);
+
+// 67. Write a function `getCurrentDateTime` that returns the current date and time in a specified format.
+function getCurrentDateTime() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  
+  const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  
+  return formattedDateTime;
+}
+
+const currentDateTime = getCurrentDateTime();
+console.log(currentDateTime); 
+
+// 68. Create a function `generateRandomPassword` that creates a random password based on user-defined criteria.
+
+function generateRandomPassword(length, useUppercase = true, useLowercase = true, useNumbers = true, useSpecialChars = true) {
+  // Define possible character sets
+  const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+  const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numberChars = '0123456789';
+  const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+  
+  // Build a pool of characters based on user criteria
+  let charPool = '';
+  if (useUppercase) charPool += uppercaseChars;
+  if (useLowercase) charPool += lowercaseChars;
+  if (useNumbers) charPool += numberChars;
+  if (useSpecialChars) charPool += specialChars;
+
+  // If no character pool is selected, return an error
+  if (charPool === '') {
+    return 'Error: At least one character type must be selected.';
+  }
+
+  // Generate random password
+  let password = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charPool.length);
+    password += charPool[randomIndex];
+  }
+
+  return password;
+}
+
+function generateAndShowPassword() {
+  const randomPassword = generateRandomPassword(12);  // Password length is 12
+  document.getElementById('passwordOutput').textContent = randomPassword;
+}
+// 69. Write a function `rotateArray` that rotates an array to the right by a given number of steps.
+function rotateArray(arr, steps) {
+  const length = arr.length;
+  const normalizedSteps = steps % length;
+  return [...arr.slice(-normalizedSteps), ...arr.slice(0, -normalizedSteps)];
+}
+
+const ar = [1, 2, 3, 4, 5];
+const steps = 2;
+
+console.log("Rotated Array:", rotateArray(ar, steps));
+
+// 70. Create a function `comparePasswords` that checks if two password fields match during registration.
+function comparePasswords(password1, password2) {
+  return password1 === password2;
+}
+
+
+const password1 = "securePassword123";
+const password2 = "securePassword123";
+
+if (comparePasswords(password1, password2)) {
+  console.log("Passwords match!");
+} else {
+  console.log("Passwords do not match.");
+}
+// 71. Write a function `isAdult` that takes an age and returns true if the age is 18 or older, and false otherwise.
+function isAdult(age) {
+  return age >= 18;
+}
+
+console.log(isAdult(20)); 
+console.log(isAdult(17));
+console.log(isAdult(18));
+
+// 72. Create a function `concatStrings` that takes two strings and returns them concatenated together.
+function concatStrings(str1, str2) {
+  return str1 + str2;
+}
+
+console.log(concatStrings("Hello, ", "World!")); 
+console.log(concatStrings("Frontend", "Developer"));
 
 
 
